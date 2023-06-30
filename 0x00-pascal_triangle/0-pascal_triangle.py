@@ -1,16 +1,19 @@
 #!/usr/bin/python3
-def pascal_triangle(n):
+
+def pascal_triangle(n)
+    if type(n) is not int:
+        raise TypeError("n must be an integer")
+    matrix = []
     if n <= 0:
-        return []
-
-    triangle = [[1]]
-    for i in range(1, n):
-        prev_row = triangle[i-1]
-        curr_row = [1]
-        for j in range(1, i):
-            curr_row.append(prev_row[j-1] + prev_row[j])
-        curr_row.append(1)
-        triangle.append(curr_row)
-
-    return triangle
-
+        return matrix
+    for i in range(n):
+        arr = []
+        for j in range(i+1):
+            if j == 0:
+                arr.append(1)
+            elif j == i:
+                arr.append(1)
+            else:
+                arr.append(matrix[i-1][j-1] + matrix[i-1][j])
+        matrix.append(arr)
+    return matrix
