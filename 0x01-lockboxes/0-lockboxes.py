@@ -1,14 +1,34 @@
 #!/usr/bin/python3
+'''LockBoxes Challenge'''
+
+
 def canUnlockAll(boxes):
-    num_boxes = len(boxes)
-    unlocked_boxes = [False] * num_boxes
-    unlocked_boxes[0] = True
+    '''
+    Determines if all the boxes can be opened or not.
 
-    keys = boxes[0]
-    while keys:
-        key = keys.pop()
-        if key < num_boxes and not unlocked_boxes[key]:
-            unlocked_boxes[key] = True
-            keys.extend(boxes[key])
+    Returns:
+        True: if all boxes can be opened.
+        False: if not all boxes can be opened.
+    '''
+    length = len(boxes)
+    keys = set()
+    opened_boxes = []
+    i = 0
 
-    return all(unlocked_boxes)
+    while i < length:
+        oldi = i
+        opened_boxes.append(i)
+        keys.update(boxes[i])
+        for key in keys:
+            if key != 0 and key < length and key not in opened_boxes:
+                i = key
+                break
+        if oldi != i:
+            continue
+        else:
+            break
+
+    for i in range(length):
+        if i not in opened_boxes and i != 0:
+            return False
+    return True
