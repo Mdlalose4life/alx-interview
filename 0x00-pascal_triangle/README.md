@@ -1,0 +1,1 @@
+THis is read me for 0-pascal_triangle.
