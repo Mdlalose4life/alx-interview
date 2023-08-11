@@ -8,7 +8,7 @@ const API_URL = 'https://swapi-api.alx-tools.com/api';
 
 // Check if the number of command line arguments is greater than 2
 if (process.argv.length > 2) {
-  // Requesting a fild based on the ID
+  // Requesting a film based on the ID
   request(`${API_URL}/films/${process.argv[2]}/`, (err, _, body) => {
     // Log the error occured during the request
     if (err) {
