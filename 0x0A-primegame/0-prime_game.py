@@ -3,6 +3,7 @@
 Prime Game
 """
 
+
 def prime_nums(n):
     """
     Generatesa list of prime numbers between 1
@@ -16,6 +17,7 @@ def prime_nums(n):
             for index in range(prime, n + 1, prime):
                 filter[index] = False
     return prime_num
+
 
 def isWinner(x, nums):
     """
